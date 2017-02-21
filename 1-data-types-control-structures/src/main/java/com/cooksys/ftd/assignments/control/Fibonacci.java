@@ -41,7 +41,7 @@ public class Fibonacci {
         	z = y-z;
         }
         
-        System.out.println(y);
+        //System.out.println(y);
         
         return z;
     }
@@ -72,17 +72,8 @@ public class Fibonacci {
         if (start < 0 || end < 0 || start > end) throw new IllegalArgumentException();
         
         int[] sliced;
-        /*
-        if (end == start)
-        {
-        	sliced = new int[1];
-        }
-        
-        else
-        {*/
-        //if (end == 0) return new int[0];
+      
         sliced = new int[end-start];
-        //}
         
         int counter = start;
         

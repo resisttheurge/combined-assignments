@@ -76,27 +76,7 @@ public class FizzBuzz {
     	}
     	
     	return null;
-    	/*
-    	if (n == 0) return null;
     	
-        if (n % 3 == 0 && n % 5 ==0)
-        {
-        	return "FizzBuzz";
-        }
-        else if (n % 3 == 0 && n % 5 != 0)
-        {
-        	return "Fizz";
-        }
-        else if (n % 3 != 0 && n % 5 == 0)
-        {
-        	return "Buzz";
-        	
-        }
-        else
-        {
-        	return null;
-        }
-        */
     }
 
     /**
@@ -136,11 +116,6 @@ public class FizzBuzz {
         }
     	
     	String[] non_null_messages = new String[count_of_non_null];
-    	
-    	//non_null_messages = messages.clone();
-    	
-    	
-    	//return non_null_messages;
     	
     	int counter2 = 0;
     	
