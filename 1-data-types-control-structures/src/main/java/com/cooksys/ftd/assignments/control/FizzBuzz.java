@@ -25,8 +25,22 @@ public class FizzBuzz {
      * @return `true` if a is evenly divisible by b, `false` otherwise
      * @throws IllegalArgumentException if b is zero
      */
-    public static boolean divides(int a, int b) throws IllegalArgumentException {
-        throw new NotImplementedException();
+    public static boolean divides(int a, int b){ //throws IllegalArgumentException {
+    	
+    	if (b == 0)
+    	{
+    		throw new IllegalArgumentException();
+    	}
+    	
+    	if (a % b != 0 )
+        {
+        	return false;
+        }
+        else
+        {
+        	return true;
+        }
+    	
     }
 
     /**
@@ -41,7 +55,48 @@ public class FizzBuzz {
      * @return a message according to the format above, or null if n is not divisible by either 3 or 5
      */
     public static String message(int n) {
-        throw new NotImplementedException();
+    	
+    	if (!divides(n,3) && !divides(n,5))
+    	{
+    		return null;
+    	}
+    	else if (divides(n,3) && divides(n,5))
+    	{
+    		return "" + n + ": FizzBuzz";
+    		
+    	} 
+    	else if (!divides(n,3) && divides(n,5))
+    	{
+    		return "" + n + ": Buzz";
+    	}
+    	else if (divides(n,3) && !divides(n,5))
+    	{
+    		return "" + n + ": Fizz";
+    		
+    	}
+    	
+    	return null;
+    	/*
+    	if (n == 0) return null;
+    	
+        if (n % 3 == 0 && n % 5 ==0)
+        {
+        	return "FizzBuzz";
+        }
+        else if (n % 3 == 0 && n % 5 != 0)
+        {
+        	return "Fizz";
+        }
+        else if (n % 3 != 0 && n % 5 == 0)
+        {
+        	return "Buzz";
+        	
+        }
+        else
+        {
+        	return null;
+        }
+        */
     }
 
     /**
@@ -55,7 +110,53 @@ public class FizzBuzz {
      * @throws IllegalArgumentException if the given end is less than the given start
      */
     public static String[] messages(int start, int end) throws IllegalArgumentException {
-        throw new NotImplementedException();
+        
+    	if (end < start) throw new IllegalArgumentException();
+    	
+    	String[] messages;
+    	
+    	if (start == end) 
+    	{
+    		messages = new String[1];
+    	}
+    	else
+    	{
+    		messages = new String[end-start];
+    	}
+        
+    	int count_of_non_null = 0;
+    	
+    	for (int i = start; i < end; i++)
+        {
+    		if (!(message(i) == null))
+    		{
+    			messages[count_of_non_null] = message(i);
+    			count_of_non_null++;
+    		}
+        }
+    	
+    	String[] non_null_messages = new String[count_of_non_null];
+    	
+    	//non_null_messages = messages.clone();
+    	
+    	
+    	//return non_null_messages;
+    	
+    	int counter2 = 0;
+    	
+    	for (String m : messages)
+    	{
+    		if (m != null && m != "0")
+    		{
+    			non_null_messages[counter2] = m;
+    			counter2++;
+    		}
+    	}
+    	
+    	//System.out.println(non_null_messages.length);
+    	
+    	return non_null_messages;
+    	
     }
 
     /**
@@ -63,7 +164,12 @@ public class FizzBuzz {
      * the relevant messages to sysout
      */
     public static void main(String[] args) {
-        throw new NotImplementedException();
+        String[] msgs_to_print = messages(1, 116);
+        
+        for (int i = 0; i < msgs_to_print.length; i++)
+        {
+        	System.out.println(msgs_to_print[i]);
+        }
     }
 
 }
